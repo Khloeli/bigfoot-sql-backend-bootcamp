@@ -15,13 +15,13 @@ const { comment, sighting } = db;
 // initializing Controllers -> note the lowercase for the first word
 const sightingsController = new SightingsController(sighting, comment);
 
-// inittializing Routers
+// initializing Routers
 const sightingRouter = new SightingsRouter(sightingsController).routes();
 
 const PORT = process.env.PORT;
 const app = express();
 
-// Enable CORS access to this server. This allows the server to accept requests from different origins.
+// Enable CORS access to this server
 app.use(cors());
 
 // using the routers
@@ -29,6 +29,8 @@ app.use("/sightings", sightingRouter);
 
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}!`);
+
+  console.log("testing");
 });
 
 // const express = require("express");
