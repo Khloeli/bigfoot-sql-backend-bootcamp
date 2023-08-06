@@ -1,14 +1,8 @@
 const cors = require("cors");
 const express = require("express");
 require("dotenv").config();
-
-// importing Routers
 const SightingsRouter = require("./routers/sightingsRouter");
-
-// importing Controllers
 const SightingsController = require("./controllers/sightingsController");
-
-// importing DB
 const db = require("./db/models/index");
 const { comment, sighting } = db;
 
@@ -23,7 +17,7 @@ const app = express();
 
 // Enable CORS access to this server
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // to parse incoming JSON data in the request body.
 
 // using the routers
 app.use("/sightings", sightingRouter);
